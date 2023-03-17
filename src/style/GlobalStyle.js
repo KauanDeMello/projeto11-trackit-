@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
-const ResetStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 	a, abbr, acronym, address, big, cite, code,
@@ -44,6 +44,15 @@ const ResetStyle = createGlobalStyle`
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
+
+	@media only screen and (max-width: 600px) {
+    body {
+      overflow-x: hidden;
+    }
+    meta[name="viewport"] {
+      width: 100%;
+    }
+  }
 `
 
-export default ResetStyle
+export default GlobalStyle
