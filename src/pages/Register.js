@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import LogoImage from "../assets/logo.svg"
 
-
-
 export default function Register(){
+    
     return (
+      
         <Container>
             <Logo src={LogoImage}/>
             <LoginForm>

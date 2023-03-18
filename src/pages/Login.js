@@ -3,15 +3,17 @@ import LogoImage from "../assets/logo.svg"
 import { Link } from "react-router-dom";
 
 
-
 export default function Login(){
+
+ 
+
     return (
         <Container>
             <Logo src={LogoImage}/>
             <LoginForm>
                 <input placeholder="email" disabled={false}/>
                 <input placeholder="senha" disabled={false}/>
-                <button type="submit" disabled={false}>Entrar</button>
+                <button disabled={false}>Entrar</button>
             </LoginForm>
             <StyledLink to="/cadastro">Não Possui uma conta? Cadastre-se</StyledLink>
         </Container>
