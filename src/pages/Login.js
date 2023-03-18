@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import LogoImage from "../assets/logo.svg"
 
+
+
 export default function Login(){
     return (
         <Container>
             <Logo src={LogoImage}/>
             <LoginForm>
-                <form>
                 <input placeholder="email"/>
                 <input placeholder="senha"/>
                 <button type="submit">Entrar</button>
-                </form>
+                <StyledLink>Não Possui uma conta? Cadastre-se</StyledLink>
             </LoginForm>
         </Container>
     )
@@ -18,8 +19,9 @@ export default function Login(){
 
 const Container = styled.div`
 
-min-height: 100vh;
-width: 100%;
+min-height: 100%;
+margin-top: 60px;
+width: auto;
 padding: 30px;
 display: flex;
 justify-content: center;
@@ -36,15 +38,10 @@ const LoginForm = styled.label`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   margin: 20px 0;
   font-size: 18px;
 
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
 
   input {
     width: 300px;
@@ -84,3 +81,17 @@ const LoginForm = styled.label`
 
   }
 `;
+
+  const StyledLink = styled.div`
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.976px;
+    line-height: 17px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #52B6FF;
+    margin-top: 20px;
+    align-self: flex-start;
+    padding-left: 25px;
+  `
