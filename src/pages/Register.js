@@ -13,8 +13,8 @@ export default function Register(){
                 <input placeholder="nome"/>
                 <input placeholder="foto"/>
                 <button type="submit">Cadastrar</button>
-                <StyledLink>Já tem uma conta? faça login!</StyledLink>
             </LoginForm>
+            <StyledLink>Já tem uma conta? faça login!</StyledLink>
         </Container>
     )
 }

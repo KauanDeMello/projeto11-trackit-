@@ -1,12 +1,18 @@
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 
 
 export default function App(){
   
     return(
-        <Login/>
+        <BrowserRouter>
+        <Routes>
+            <Route path= "/" element={<Login />}/>
+            <Route path= "/cadastro" element={<Register/>}/>
+        </Routes>
+        </BrowserRouter>
     )
 
 }

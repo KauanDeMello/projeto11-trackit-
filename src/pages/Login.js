@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import LogoImage from "../assets/logo.svg"
+import { Link } from "react-router-dom";
 
 
 
@@ -8,11 +9,11 @@ export default function Login(){
         <Container>
             <Logo src={LogoImage}/>
             <LoginForm>
-                <input placeholder="email"/>
-                <input placeholder="senha"/>
-                <button type="submit">Entrar</button>
-                <StyledLink>Não Possui uma conta? Cadastre-se</StyledLink>
+                <input placeholder="email" disabled={false}/>
+                <input placeholder="senha" disabled={false}/>
+                <button type="submit" disabled={false}>Entrar</button>
             </LoginForm>
+            <StyledLink to="/cadastro">Não Possui uma conta? Cadastre-se</StyledLink>
         </Container>
     )
 }
@@ -82,7 +83,7 @@ const LoginForm = styled.label`
   }
 `;
 
-  const StyledLink = styled.div`
+  const StyledLink = styled(Link)`
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 400;
@@ -91,7 +92,5 @@ const LoginForm = styled.label`
     text-align: center;
     text-decoration-line: underline;
     color: #52B6FF;
-    margin-top: 20px;
-    align-self: flex-start;
-    padding-left: 25px;
+    align-self: center;
   `
