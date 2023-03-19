@@ -1,27 +1,31 @@
 import styled from "styled-components";
+import { useState } from "react";
 import Menu from "../components/Menu,";
 import TopContainer from "../components/TopContainer";
 import plusImage from "../assets/plus.svg";
+import CreateHabits from "../components/CreateHabits";
 
 export default function Habits(){
+    const [isCreateFormOpened, setIsCreateFormOpened] = useState(false);
 
     return(
         <>
         <TopContainer/>
         
-        <ContainerHabits>
-            <TitleButtonDiv>
-                <Title>Meus hábitos</Title>
-                <Button>
-                    <img src={plusImage} alt="Adicionar Ícone"/>
-                </Button>
-            </TitleButtonDiv>
-            <Subtitle>
-                Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!
-            </Subtitle>
+       <ContainerHabits>
+        <TitleButtonDiv>
+          <Title>Meus hábitos</Title>
+          <Button onClick={() => setIsCreateFormOpened(true)}>
+            <img src={plusImage} alt="Adicionar Ícone" />
+          </Button>
+        </TitleButtonDiv>
+        <CreateHabits isOpened={isCreateFormOpened} setIsOpened={setIsCreateFormOpened}/> 
+        <Subtitle>
+          Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!
+        </Subtitle>
 
-            <Menu/>
-        </ContainerHabits>
+        <Menu />
+      </ContainerHabits>
         
         </>
     );
