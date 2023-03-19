@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Menu from "../components/Menu,";
 import TopContainer from "../components/TopContainer";
 import plusImage from "../assets/plus.svg";
 
@@ -18,6 +19,8 @@ export default function Habits(){
             <Subtitle>
                 Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!
             </Subtitle>
+
+            <Menu/>
         </ContainerHabits>
         
         </>
