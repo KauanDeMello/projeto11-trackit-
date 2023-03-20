@@ -4,9 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import loginAPI from "../server/loginAPI";
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/User";
+import { ThreeDots } from "react-loader-spinner";
 
 
 export default function Login(){
+    const [loading, Setloading] = useState(false)
     const navigate = useNavigate();
     const [formulario, setFormulario] = useState({email: "", password: ""});
 
@@ -14,6 +16,7 @@ export default function Login(){
 
     function handleFormulario(e){
       setFormulario({...formulario, [e.target.name]: e.target.value});
+      Setloading(true)
     }
 
     function handleLogin(e){
@@ -21,12 +24,14 @@ export default function Login(){
      
       loginAPI.login(formulario)
       .then( res => {
+        Setloading(false)
         console.log(res.data)
         const {id, name, token, image} = res.data
         setUser({id, name, token, image})
         navigate("/hoje")
       })
         .catch(err => {
+          Setloading(false)
           console.log(err.response.data)
           alert(err.response.data.message)
         })
@@ -41,7 +46,7 @@ export default function Login(){
             type="email" 
             name="email"
             placeholder="email" 
-            disabled={false}
+            
             value={formulario.email}
             onChange={handleFormulario}
             required
@@ -51,13 +56,16 @@ export default function Login(){
             type="password" 
             name="password"
             placeholder="senha" 
-            disabled={false}
+            
             value={formulario.password}
             onChange={handleFormulario}
             required
             />
 
-            <button type="submit" disabled={false}>Entrar</button>
+            <button type="submit" disabled={false}>  
+            {loading ? (
+                <ThreeDots width={40} height={40} color="#FFFFFF" />) : "Entrar"}
+            </button>
 
         </LoginForm>
             </form>
