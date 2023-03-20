@@ -4,7 +4,7 @@ import Days from "../constants/Days"
 export default function Daysbuttons(){
 
     return(
-        <Dias disabled={false}>
+        <Dias data-test="habit-day" disabled={false}>
             {Days.map(diasemana => (
                 <StayledDay key={diasemana.id} isSelected={false}>
                     {diasemana.day}

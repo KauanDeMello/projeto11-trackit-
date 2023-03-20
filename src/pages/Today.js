@@ -10,8 +10,8 @@ export default function Today(){
    <TopContainer/>
 
     <ContainerToday>
-        <Titleday>Segunda, 17/05</Titleday>
-        <Texto doneAmount={0}>
+        <Titleday data-test="today">Segunda, 17/05</Titleday>
+        <Texto data-test="today-counter"  doneAmount={0}>
           Nenhum hábito concluído
         </Texto>
 

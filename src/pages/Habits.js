@@ -13,9 +13,9 @@ export default function Habits(){
         <>
         <TopContainer/>
         
-       <ContainerHabits>
+       <ContainerHabits data-test="habit-create-container">
         <TitleButtonDiv>
-          <Title>Meus hábitos</Title>
+          <Title  data-test="habit-name-input" >Meus hábitos</Title>
           <Button onClick={() => setIsCreateFormOpened(true)}>
             <img src={plusImage} alt="Adicionar Ícone" />
           </Button>
@@ -24,7 +24,7 @@ export default function Habits(){
         <Subtitle>
           Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!
         </Subtitle>
-        <HabitosSalvados/>
+        <HabitosSalvados data-test="habit-name" />
         <HabitosSalvados/>
         <HabitosSalvados/>
         <Menu />

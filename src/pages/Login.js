@@ -43,7 +43,7 @@ export default function Login(){
             <Logo src={LogoImage}/>
             <form onSubmit={handleLogin}>
             <LoginForm>
-            <input
+            <input data-test="email-input"
             type="email" 
             name="email"
             placeholder="email" 
@@ -53,7 +53,7 @@ export default function Login(){
             required
             />
 
-            <input
+            <input  data-test="password-input" no input de senha do usuário
             type="password" 
             name="password"
             placeholder="senha" 
@@ -63,14 +63,14 @@ export default function Login(){
             required
             />
 
-            <button type="submit" disabled={false}>  
+            <button data-test="login-btn" type="submit" disabled={false}>  
             {loading ? (
                 <ThreeDots width={40} height={40} color="#FFFFFF"/>) : "Entrar"}
             </button>
 
         </LoginForm>
             </form>
-            <StyledLink to="/cadastro">Não Possui uma conta? Cadastre-se</StyledLink>
+            <StyledLink data-test="signup-link" to="/cadastro">Não Possui uma conta? Cadastre-se</StyledLink>
         </Container>
     )
 }

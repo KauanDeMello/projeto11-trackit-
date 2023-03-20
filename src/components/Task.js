@@ -5,12 +5,12 @@ export default function Tasks() {
   return (
     <Container>
       <TitleContainer>
-        <LeftContainer>
+        <LeftContainer data-test="today-habit-container" >
           <Title>Ler 1 capítulo de livro</Title>
           <Sequence>Sequência atual: 4 dias</Sequence>
           <Record>Seu recorde: 5 dias</Record>
         </LeftContainer>
-        <CheckMarkContainer>
+        <CheckMarkContainer data-test="today-habit-check-btn">
           <img src={Check} alt="Check" />
         </CheckMarkContainer>
       </TitleContainer>

@@ -4,17 +4,17 @@ import Daysbuttons from "./Daysbuttons";
 export default function CreateHabits({ isOpened, setIsOpened }) { 
   return (
     <ContainerForm isOpened={isOpened}>
-      <HabitsContainer>
-        <Input placeholder="nome do hábito" disabled={false} />
+      <HabitsContainer >
+        <Input data-test="habit-name-input" placeholder="nome do hábito" disabled={false} />
         <Daysbuttons />
       </HabitsContainer>
 
-      <ButtonsContainer>
+      <ButtonsContainer data-test="habit-create-cancel-btn">
         <CloseButton type="button" onClick={() => setIsOpened(false)} disabled={false}> 
           Cancelar
         </CloseButton>
 
-        <SaveButton type="submit" disabled={false}>
+        <SaveButton  data-test="habit-create-save-btn" type="submit" disabled={false}>
           Salvar 
         </SaveButton>
       </ButtonsContainer>

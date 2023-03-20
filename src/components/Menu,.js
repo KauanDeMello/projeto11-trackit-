@@ -9,10 +9,10 @@ export default function Menu(){
     const {progress} = useContext(ProgressContext)
 
     return(
-        <MenuFooter>
-            <StyledLink to="/habitos">Hábitos</StyledLink>
+        <MenuFooter data-test="menu">
+            <StyledLink  test="habit-link" to="/habitos">Hábitos</StyledLink>
 
-            <ContentProgressbar>
+            <ContentProgressbar data-test="today-link">
             <CircularProgressbarContainer>
               <Link to="/hoje">
              <CircularProgressbar
@@ -30,7 +30,7 @@ export default function Menu(){
           </Link>
         </CircularProgressbarContainer>
 
-        <StyledLink to="/historico">Históricos</StyledLink>
+        <StyledLink  data-test="history-link" to="/historico">Históricos</StyledLink>
 
       </ContentProgressbar>
             

@@ -9,7 +9,7 @@ export default function TopContainer(){
     const {user} = useContext(UserContext)
 
     return(
-        <Container>
+        <Container data-test="header">
             <Link to="/hoje">
             <Logomini src={miniLogoImage}/></Link>
           <Userimg src={user.image}/>

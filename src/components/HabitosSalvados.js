@@ -4,9 +4,9 @@ import Daysbuttons from "./Daysbuttons"
 
 export default function HabitosSalvados(){
     return(
-        <Container>
+        <Container data-test="habit-container" >
             <Title>Ler 1 capítulo de livro</Title>
-            <Daysbuttons/>
+            <Daysbuttons data-test="habit-day"  />
             <img src={Dump} alt="Lixeira"/>
         </Container>
     )

@@ -40,11 +40,11 @@ export default function Register(){
     
     return (
       
-        <Container>
+        <Container >
             <Logo src={LogoImage}/>
             <form onSubmit={handleSignup}>
             <LoginForm>
-                <input
+                <input data-test="email-input"
                  type="email" 
                  name="email"
                  placeholder="email" 
@@ -56,7 +56,7 @@ export default function Register(){
                   
 
 
-                <input
+                <input data-test="password-input"
                 type="password" 
                 name="password"
                 placeholder="senha" 
@@ -67,7 +67,7 @@ export default function Register(){
                 />
 
 
-                <input
+                <input data-test="user-name-input"
                 type="text" 
                 name="name"
                 placeholder="nome"
@@ -77,7 +77,7 @@ export default function Register(){
                 />
 
 
-                <input 
+                <input  data-test="user-image-input"
                 type="url" 
                 name="image"
                 placeholder="foto"
@@ -86,11 +86,11 @@ export default function Register(){
                 required />
 
 
-                <button type="submit" disabled={loading}> {loading ? (
+                <button data-test="signup-btn"  type="submit" disabled={loading}> {loading ? (
                 <ThreeDots width={40} height={40} color="#FFFFFF" />) : "Cadastrar"}</button>
             </LoginForm>
             </form>
-            <StyledLink to={"/"}>Já tem uma conta? faça login!</StyledLink>
+            <StyledLink  data-test="login-link" to={"/"}>Já tem uma conta? faça login!</StyledLink>
         </Container>
     )
 }
