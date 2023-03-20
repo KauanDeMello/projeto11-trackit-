@@ -1,19 +1,25 @@
 import styled from "styled-components";
 import LogoImage from "../assets/logo.svg"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Login(){
+    const navigate = useNavigate()
 
- 
+    function handleLogin(e){
+      e.preventDefault()
+      navigate("/hoje")
+    }
 
     return (
         <Container>
             <Logo src={LogoImage}/>
             <LoginForm>
+            <form onSubmit={handleLogin}>
                 <input placeholder="email" disabled={false}/>
                 <input placeholder="senha" disabled={false}/>
                 <button disabled={false}>Entrar</button>
+            </form>
             </LoginForm>
             <StyledLink to="/cadastro">Não Possui uma conta? Cadastre-se</StyledLink>
         </Container>

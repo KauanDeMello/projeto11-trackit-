@@ -1,12 +1,20 @@
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import LogoImage from "../assets/logo.svg"
 
 export default function Register(){
+    const navigate = useNavigate()
+
+    function handleLogin(e){
+    e.preventDefault()
+    navigate("/")
+  }
     
     return (
       
         <Container>
             <Logo src={LogoImage}/>
+            <form onSubmit={handleLogin}>
             <LoginForm>
                 <input placeholder="email"/>
                 <input placeholder="senha"/>
@@ -14,7 +22,8 @@ export default function Register(){
                 <input placeholder="foto"/>
                 <button type="submit">Cadastrar</button>
             </LoginForm>
-            <StyledLink>Já tem uma conta? faça login!</StyledLink>
+            </form>
+            <StyledLink to={"/"}>Já tem uma conta? faça login!</StyledLink>
         </Container>
     )
 }
@@ -84,7 +93,7 @@ const LoginForm = styled.label`
   }
 `;
 
-  const StyledLink = styled.div`
+  const StyledLink = styled(Link)`
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 400;

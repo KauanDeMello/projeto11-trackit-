@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import miniLogoImage from "../assets/miniLogo.svg"
 
@@ -5,7 +6,8 @@ export default function TopContainer(){
 
     return(
         <Container>
-          <Logomini src={miniLogoImage}/>
+            <Link to="/hoje">
+            <Logomini src={miniLogoImage}/></Link>
           <User> TESTE </User>
         </Container> 
     )
