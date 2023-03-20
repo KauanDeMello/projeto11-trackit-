@@ -1,26 +1,61 @@
 import styled from "styled-components";
 import LogoImage from "../assets/logo.svg"
 import { Link, useNavigate } from "react-router-dom";
+import loginAPI from "../server/loginAPI";
+import { useState } from "react";
 
 
 export default function Login(){
     const navigate = useNavigate()
+    const [formulario, setFormulario] = useState({email: "", password: ""})
+
+    function handleFormulario(e){
+      setFormulario({...formulario, [e.target.name]: e.target.value})
+    }
 
     function handleLogin(e){
       e.preventDefault()
-      navigate("/hoje")
+     
+      loginAPI.login(formulario)
+      .then( res => {
+        console.log(res.data)
+        navigate("/hoje")
+      })
+        .catch(err => {
+          console.log(err.response.data)
+          alert(err.response.data.message)
+        })
     }
 
     return (
         <Container>
             <Logo src={LogoImage}/>
-            <LoginForm>
             <form onSubmit={handleLogin}>
-                <input placeholder="email" disabled={false}/>
-                <input placeholder="senha" disabled={false}/>
-                <button disabled={false}>Entrar</button>
+            <LoginForm>
+            <input
+            type="email" 
+            name="email"
+            placeholder="email" 
+            disabled={false}
+            value={formulario.email}
+            onChange={handleFormulario}
+            required
+            />
+
+            <input
+            type="password" 
+            name="password"
+            placeholder="senha" 
+            disabled={false}
+            value={formulario.password}
+            onChange={handleFormulario}
+            required
+            />
+
+            <button type="submit" disabled={false}>Entrar</button>
+
+        </LoginForm>
             </form>
-            </LoginForm>
             <StyledLink to="/cadastro">Não Possui uma conta? Cadastre-se</StyledLink>
         </Container>
     )
