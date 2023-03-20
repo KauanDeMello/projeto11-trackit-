@@ -2,15 +2,18 @@ import styled from "styled-components";
 import LogoImage from "../assets/logo.svg"
 import { Link, useNavigate } from "react-router-dom";
 import loginAPI from "../server/loginAPI";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../contexts/User";
 
 
 export default function Login(){
-    const navigate = useNavigate()
-    const [formulario, setFormulario] = useState({email: "", password: ""})
+    const navigate = useNavigate();
+    const [formulario, setFormulario] = useState({email: "", password: ""});
+
+    const{setUser} = useContext(UserContext)
 
     function handleFormulario(e){
-      setFormulario({...formulario, [e.target.name]: e.target.value})
+      setFormulario({...formulario, [e.target.name]: e.target.value});
     }
 
     function handleLogin(e){
@@ -19,6 +22,8 @@ export default function Login(){
       loginAPI.login(formulario)
       .then( res => {
         console.log(res.data)
+        const {id, name, token, image} = res.data
+        setUser({id, name, token, image})
         navigate("/hoje")
       })
         .catch(err => {
