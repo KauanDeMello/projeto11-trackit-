@@ -16,11 +16,12 @@ export default function Login(){
 
     function handleFormulario(e){
       setFormulario({...formulario, [e.target.name]: e.target.value});
-      Setloading(true)
+      
     }
 
     function handleLogin(e){
       e.preventDefault()
+      Setloading(true)
      
       loginAPI.login(formulario)
       .then( res => {
@@ -64,7 +65,7 @@ export default function Login(){
 
             <button type="submit" disabled={false}>  
             {loading ? (
-                <ThreeDots width={40} height={40} color="#FFFFFF" />) : "Entrar"}
+                <ThreeDots width={40} height={40} color="#FFFFFF"/>) : "Entrar"}
             </button>
 
         </LoginForm>

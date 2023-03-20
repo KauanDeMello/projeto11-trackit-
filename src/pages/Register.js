@@ -1,26 +1,93 @@
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import LogoImage from "../assets/logo.svg"
+import { useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
+import signupAPI from "../server/signupAPI";
+import { useContext } from "react";
+import { UserContext } from "../contexts/User";
 
 export default function Register(){
     const navigate = useNavigate()
+    const [formulario, setFormulario] = useState({email: "", password: "", name:"", image:""});
+    const [loading, Setloading] = useState(false)
 
-    function handleLogin(e){
-    e.preventDefault()
-    navigate("/")
-  }
+    function handleFormulario(e){
+      setFormulario({...formulario, [e.target.name]: e.target.value});
+      
+    }
+
+    const{setUser} = useContext(UserContext)
+
+    function handleSignup(e){
+      e.preventDefault()
+      Setloading(true)
+
+      signupAPI.signup(formulario).then(res => {
+        Setloading(false)
+        const {email, password, name, image} = res.data
+        setUser({email, password, name, image})
+        console.log(res.data)
+        navigate("/")
+      })
+      .catch(err => {
+        Setloading(false)
+        alert(err.response.data.message)
+      })
+    }
+
+  
     
     return (
       
         <Container>
             <Logo src={LogoImage}/>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleSignup}>
             <LoginForm>
-                <input placeholder="email"/>
-                <input placeholder="senha"/>
-                <input placeholder="nome"/>
-                <input placeholder="foto"/>
-                <button type="submit">Cadastrar</button>
+                <input
+                 type="email" 
+                 name="email"
+                 placeholder="email" 
+                 
+                 value={formulario.email}
+                 onChange={handleFormulario}
+                 required
+                 />
+                  
+
+
+                <input
+                type="password" 
+                name="password"
+                placeholder="senha" 
+                
+                value={formulario.password}
+                onChange={handleFormulario}
+                required
+                />
+
+
+                <input
+                type="text" 
+                name="name"
+                placeholder="nome"
+                value={formulario.name}
+                onChange={handleFormulario}
+                required 
+                />
+
+
+                <input 
+                type="url" 
+                name="image"
+                placeholder="foto"
+                value={formulario.image}
+                onChange={handleFormulario}
+                required />
+
+
+                <button type="submit" disabled={loading}> {loading ? (
+                <ThreeDots width={40} height={40} color="#FFFFFF" />) : "Cadastrar"}</button>
             </LoginForm>
             </form>
             <StyledLink to={"/"}>Já tem uma conta? faça login!</StyledLink>
