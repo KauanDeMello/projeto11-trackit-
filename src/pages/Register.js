@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import signupAPI from "../server/signupAPI";
 import { useContext } from "react";
-import { UserContext } from "../contexts/User";
+import { UserContext } from "../contexts/UserContext";
 
 export default function Register(){
     const navigate = useNavigate()

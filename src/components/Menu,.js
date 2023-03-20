@@ -2,8 +2,12 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 import {CircularProgressbar, buildStyles} from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
+import { ProgressContext } from "../contexts/Progress"
+import { useContext } from "react"
 
 export default function Menu(){
+    const {progress} = useContext(ProgressContext)
+
     return(
         <MenuFooter>
             <StyledLink to="/habitos">Hábitos</StyledLink>
@@ -12,6 +16,7 @@ export default function Menu(){
             <CircularProgressbarContainer>
               <Link to="/hoje">
              <CircularProgressbar
+             value={progress}
               text={"Hoje"}
               background
               backgroundPadding={6}

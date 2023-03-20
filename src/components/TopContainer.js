@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import miniLogoImage from "../assets/miniLogo.svg"
-import { UserContext } from "../contexts/User";
+import { UserContext } from "../contexts/UserContext";
 
 export default function TopContainer(){
 
@@ -12,7 +12,7 @@ export default function TopContainer(){
         <Container>
             <Link to="/hoje">
             <Logomini src={miniLogoImage}/></Link>
-          <Userimg>{user.image}</Userimg>
+          <Userimg src={user.image}/>
         </Container> 
     )
 }
@@ -35,7 +35,10 @@ const Logomini = styled.img`
     top: 10px;
     color: #FFFFFF;
 `
-const Userimg = styled.div`
+const Userimg = styled.img`
+    border-radius: 50%;
+    width: 51px;
+    height: 51px;
     margin-left: 250px;
 `
 

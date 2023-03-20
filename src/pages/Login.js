@@ -3,7 +3,7 @@ import LogoImage from "../assets/logo.svg"
 import { Link, useNavigate } from "react-router-dom";
 import loginAPI from "../server/loginAPI";
 import { useContext, useState } from "react";
-import { UserContext } from "../contexts/User";
+import { UserContext } from "../contexts/UserContext";
 import { ThreeDots } from "react-loader-spinner";
 
 
