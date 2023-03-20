@@ -4,6 +4,7 @@ import Menu from "../components/Menu,";
 import TopContainer from "../components/TopContainer";
 import plusImage from "../assets/plus.svg";
 import CreateHabits from "../components/CreateHabits";
+import HabitosSalvados from "../components/HabitosSalvados";
 
 export default function Habits(){
     const [isCreateFormOpened, setIsCreateFormOpened] = useState(false);
@@ -23,7 +24,9 @@ export default function Habits(){
         <Subtitle>
           Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!
         </Subtitle>
-
+        <HabitosSalvados/>
+        <HabitosSalvados/>
+        <HabitosSalvados/>
         <Menu />
       </ContainerHabits>
         
